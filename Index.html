@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Don't Click 😈</title>
+<style>
+body {
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:black;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  flex-direction:column;
+}
+button {
+  margin:10px;
+  padding:12px 20px;
+  font-size:18px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+.hidden { display:none; }
+.sun {
+  font-size:60px;
+  animation: glow 1.5s infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 10px yellow; }
+  to { text-shadow: 0 0 30px orange; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="step1">
+  <h2>Don't click the wrong one 😏</h2>
+  <button onclick="wrong()">Click me</button>
+  <button onclick="wrong()">No me</button>
+  <button onclick="next(2)">This one 👀</button>
+</div>
+
+<div id="step2" class="hidden">
+  <h2>Hmm… lucky 😏 Try again</h2>
+  <button onclick="wrong()">Wrong again</button>
+  <button onclick="next(3)">Maybe this?</button>
+</div>
+
+<div id="step3" class="hidden">
+  <h2>Last chance 😈</h2>
+  <button onclick="wrong()">Don’t click</button>
+  <button onclick="next(4)">Final move</button>
+</div>
+
+<div id="step4" class="hidden">
+  <div class="sun">🌞</div>
+  <h1>Good Morning</h1>
+  <p>.....</p>
+  <p>Now go make your day legendary ✨</p>
+</div>
+
+<script>
+function next(step) {
+  document.querySelectorAll("div").forEach(d => d.classList.add("hidden"));
+  document.getElementById("step"+step).classList.remove("hidden");
+}
+function wrong() {
+  alert("Oops 😅 Try again!");
+}
+</script>
+
+</body>
+</html>
